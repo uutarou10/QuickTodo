@@ -1,10 +1,8 @@
 <?php
 session_start();
-$login_status = false;
-if (!isset($_SESSION['id'])) {
-    header('Location: login.php');
-} else {
-    $login_status = true;
+if (isset($_SESSION['id'])) {
+    //ログインしてたら
+    header('Location: todo.php');
 }
  ?>
 <!DOCTYPE html>
@@ -29,7 +27,7 @@ if (!isset($_SESSION['id'])) {
 </head>
 
 <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -47,7 +45,7 @@ if (!isset($_SESSION['id'])) {
                     <li class=""><a href="#">Setting</a></li>
                     <?php
                     //ログイン中だったらログアウトのボタンを表示
-                    if ($login_status) {
+                    if (isset($_SESSON['id'])) {
                      ?>
                     <li class=""><a href="logout.php">Logout</a></li>
                     <?php } ?>
