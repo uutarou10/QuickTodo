@@ -1,5 +1,5 @@
 <?php
-include('header.php');
+include('include/header.php');
  ?>
  <div class="container">
      <h1>Welcome to QuickTodo!!</h1>
@@ -41,5 +41,5 @@ include('header.php');
          </div>
      </div>
 <?php
-include('footer.php');
+include('include/footer.php');
  ?>
