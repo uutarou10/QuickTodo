@@ -1,7 +1,10 @@
 <?php
 session_start();
+$login_status = false;
 if (!isset($_SESSION['id'])) {
     header('Location: login.php');
+} else {
+    $login_status = true;
 }
  ?>
 <!DOCTYPE html>
@@ -42,6 +45,12 @@ if (!isset($_SESSION['id'])) {
                     <li class="active"><a href="#">Top</a></li>
                     <li class=""><a href="#">MyPage</a></li>
                     <li class=""><a href="#">Setting</a></li>
+                    <?php
+                    //ログイン中だったらログアウトのボタンを表示
+                    if ($login_status) {
+                     ?>
+                    <li class=""><a href="logout.php">Logout</a></li>
+                    <?php } ?>
                 </ul>
             </div>
 
