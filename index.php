@@ -16,7 +16,7 @@ include('header.php');
          <div class="col-sm-4">
              <h2>Login</h2>
              <p>ログイン情報を入力してください。</p>
-             <form action="login.php" method="post">
+             <form action="include/login.php" method="post">
                  <div class="form-group">
                      <label class="control-label">User ID</label>
                      <input type="text" class="form-control" placeholder="ID" name="id">
