@@ -2,8 +2,8 @@
 session_start();
 if (isset($_SESSION['id'])) {
     //ログインしてたら
-    if (__FILE__ != 'todo.php') {
-        header('Location: todo.php');
+    if (filter_input(INPUT_SERVER,'SCRIPT_NAME') != '/todo.php') {
+        header('Location: ../todo.php');
     }
 }
  ?>
@@ -47,9 +47,9 @@ if (isset($_SESSION['id'])) {
                     <li class=""><a href="#">Setting</a></li>
                     <?php
                     //ログイン中だったらログアウトのボタンを表示
-                    if (isset($_SESSON['id'])) {
+                    if (isset($_SESSION['id'])) {
                      ?>
-                    <li class=""><a href="logout.php">Logout</a></li>
+                    <li class=""><a href="include/logout.php">Logout</a></li>
                     <?php } ?>
                 </ul>
             </div>
