@@ -2,7 +2,9 @@
 session_start();
 if (isset($_SESSION['id'])) {
     //ログインしてたら
-    header('Location: todo.php');
+    if (__FILE__ != 'todo.php') {
+        header('Location: todo.php');
+    }
 }
  ?>
 <!DOCTYPE html>
