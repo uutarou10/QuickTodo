@@ -15,15 +15,18 @@ if (isset($_SESSION['id'])) {
     $stmt->execute();
 
     $row = $stmt->fetch();
-    if(isset($row)){
+    if($row){
         $_SESSION['id'] = $row['id'];
+        header('Location: ../todo.php');
+        exit();
+    } else {
+        //ログイン情報が間違っていたらログイン画面へ遷移
+        header('Location: ../login.php');
+        exit();
     }
-    header('Location: ../success.php');
-    exit();
 } else {
-    //ログイン情報が間違っていたらログイン画面へ遷移
+    //入力不足があったらログイン画面へ遷移
     header('Location: ../login.php');
     exit();
 }
  ?>
-
