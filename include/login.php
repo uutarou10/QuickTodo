@@ -17,6 +17,7 @@ if (isset($_SESSION['id'])) {
     $row = $stmt->fetch();
     if($row){
         $_SESSION['id'] = $row['id'];
+        $_SESSION['name'] = $row['name'];
         header('Location: ../todo.php');
         exit();
     } else {
