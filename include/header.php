@@ -28,7 +28,7 @@ if (isset($_SESSION['id'])) {
     <![endif]-->
 </head>
 
-<body>
+<body class="no-thank-yu">
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
