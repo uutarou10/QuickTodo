@@ -37,7 +37,7 @@ function getAllTodos($id) {
 }
 
 function countByStatus($id,$status) {
-    include('db_connect.php');
+    include_once('db_connect.php');
     $stmt=$db->prepare("
     select count(*) from todos where user_id=:id and status=:status;
     ");

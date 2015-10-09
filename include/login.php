@@ -6,7 +6,7 @@ if (isset($_SESSION['id'])) {
     exit();
 } elseif (isset($_POST['id']) && isset($_POST['pass'])) {
     //ログインしてないけどidとパスワードが送られてきたら
-    include('db_connect.php');
+    include_once('db_connect.php');
     $stmt = $db->prepare("
     select * from users where user_id=:id and password=:pass;
     ");

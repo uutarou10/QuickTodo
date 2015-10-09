@@ -1,5 +1,5 @@
 <?php
-include('include/header.php');
+include_once('include/header.php');
  ?>
  <div class="jumbotron">
      <div class="container">
@@ -47,5 +47,5 @@ include('include/header.php');
          </div>
      </div>
 <?php
-include('include/footer.php');
+include_once('include/footer.php');
  ?>
