@@ -36,4 +36,18 @@ function getAllTodos($id) {
     return $rows;
 }
 
+function countByStatus($id,$status) {
+    include('db_connect.php');
+    $stmt=$db->prepare("
+    select count(*) from todos where user_id=:id and status=:status;
+    ");
+    $stmt->bindParam(':id',$id,PDO::PARAM_INT);
+    $stmt->bindParam(':status',$status,PDO::PARAM_INT);
+    $stmt->execute();
+
+    $row = $stmt->fetch();
+
+    return $row[0];
+}
+
  ?>
