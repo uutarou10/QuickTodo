@@ -5,6 +5,10 @@ if (isset($_SESSION['id'])) {
     if (filter_input(INPUT_SERVER,'SCRIPT_NAME') != '/todo.php') {
         header('Location: ../todo.php');
     }
+} else {
+    if (filter_input(INPUT_SERVER,'SCRIPT_NAME') != '/index.php') {
+        header('Location: index.php');
+    }
 }
  ?>
 <!DOCTYPE html>
