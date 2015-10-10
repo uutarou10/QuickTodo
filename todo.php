@@ -11,14 +11,15 @@
         </div>
         <div class="col-sm-4">
             <!-- 未完了タスク数を表示 -->
-            <p>残りタスク数</p>
+            <p><strong>残りタスク数</strong></p>
             <p style="font-size:250%;">
                 <strong><?php echo countByStatus($_SESSION['id'],0); ?>件</strong>
             </p>
         </div>
     </div>
+
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
             <div class="well bs-component">
                 <form action="include/todo.php" method="post">
                     <div class="form-group">
@@ -31,11 +32,26 @@
                 </form>
             </div>
         </div>
-
+        <div class="col-sm-6">
+            <div class="well bs-component">
+                <form action="todo.php" method="get">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" name="option1" <?php if(isset($_GET['option1'])) echo "checked"; ?>>完了済みは表示しない
+                        </label>
+                    </div>
+                    <div class="clearfix">
+                        <input type="submit" value="更新" class="btn btn-primary pull-right">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
         <div class="col-sm-12">
             <form action="include/todo.php" method="post">
+
                 <div class="row">
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
                         <input type="submit" value="チェックしたタスクを実行済みにする" class="btn btn-primary" style="margin-bottom:20px;">
                     </div>
                 </div>
@@ -53,12 +69,17 @@
                         <td>ゆあたすく。</td>
                     </tr> -->
                     <?php
-                     $rows = getAllTodos($_SESSION['id']);
+                    if (isset($_GET['option1'])) {
+                        $rows = getTodos($_SESSION['id'],0);
+                    } else {
+                        $rows = getAllTodos($_SESSION['id']);
+                    }
                      foreach ($rows as $row) :
                     ?>
                     <tr>
                         <td><input type="checkbox" name="task_<?php echo $row['id']; ?>" <?php if ($row['status'] == 1) echo "checked"; ?>></td>
-                        <td><?php echo $row['task']; ?>
+                        <td><?php echo htmlspecialchars($row['task']); ?></td>
+                    </tr>
                     <?php endforeach; ?>
                 </table>
             </form>
