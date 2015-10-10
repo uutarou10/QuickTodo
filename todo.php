@@ -62,12 +62,6 @@
                         </th>
                         <th>Your Task(s)</th>
                     </tr>
-                    <!-- <tr>
-                        <td>
-                            <input type="checkbox">
-                        </td>
-                        <td>ゆあたすく。</td>
-                    </tr> -->
                     <?php
                     if (isset($_GET['option1'])) {
                         $rows = getTodos($_SESSION['id'],0);
