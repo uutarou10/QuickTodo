@@ -47,8 +47,9 @@ if (isset($_SESSION['id'])) {
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Top</a></li>
-                    <li class=""><a href="#">MyPage</a></li>
-                    <li class=""><a href="#">Setting</a></li>
+                    <!-- 実装が間に合わなかったシリーズ -->
+                    <!-- <li class=""><a href="#">MyPage</a></li>
+                    <li class=""><a href="#">Setting</a></li> -->
                     <?php
                     //ログイン中だったらログアウトのボタンを表示
                     if (isset($_SESSION['id'])) {
